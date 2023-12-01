@@ -1,8 +1,15 @@
 {
+ 
  "rewrites": [
    {
     "source": "/(.*)",
      "destination": "/"
    }
- ]
+ ],
+
+ "functions": {
+    "api/*.js": {
+      "runtime": "nodejs@20.9.0"
+    }
+  }
 }
