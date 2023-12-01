@@ -1,0 +1,25 @@
+- const route = ["/","/","/about","/activities","/courses","/group","/contact","/account"]
+nav
+    .container
+        .logo: img(src="/images/logo.jpg", alt="logo", width="147")
+        button.trigger: i
+        ul.links
+            li: a(href="/" class=navIndex == 1 ? 'active': '') الرئيسية
+            li: a(href="/about" class=navIndex == 2 ? 'active': '') حول
+            li: a(href="/activities" class=navIndex == 3 ? 'active': '') النشاطات
+            if(user)
+                li: a(href="/courses" class=navIndex == 4 ? 'active': '') الدروس
+                li.notification #[a(href="/group" class=navIndex == 5 ? 'active': '') المجموعة] #[span]
+            li: a(href="/contact" class=navIndex == 6 ? 'active': '') التواصل
+            if(user)
+                li.account: a(href="/account" class=navIndex == 7 ? 'active': '') الحساب
+            li.lang اللغة 
+                ul.dropdown
+                    li(class=lang == 'en' ? 'selected': ''): a(href=route[navIndex]+"?lang=en") English
+                    li(class=lang == 'fr' ? 'selected': ''): a(href=route[navIndex]+"?lang=fr") Français
+                    li(class=lang == 'ar' ? 'selected': ''): a(href=route[navIndex]+"?lang=ar") العربية
+    script.
+        document.querySelector('nav .trigger').addEventListener('click', function (e) {
+            this.classList.toggle('open')
+            this.nextElementSibling.classList.toggle('open')
+        })

@@ -1,0 +1,73 @@
+doctype html
+html(lang="fr")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Université - Groupe
+        link(rel="shortcut icon", href="/images/favicon.ico", type="image/x-icon")
+        link(rel="stylesheet", href="/css/global.css")
+        link(rel="stylesheet", href="/css/group.css")
+        script(src="/socket.io/socket.io.js")
+    body 
+        include includes/fr-nav
+        script. 
+            const userId = !{JSON.stringify(user._id)};
+            const username = !{JSON.stringify(user.username)};
+        script(src="/js/fileEx.js")
+        if (user.userType === 'Student')
+            script const groupId = !{JSON.stringify(groupId)};
+            .student
+                .group: .container 
+                    .content
+                        h2= user.year + ' ' + user.branch + ' - Groupe ' + user.group
+                        .messenger
+                            .messeges
+                                each message in messages
+                                    .msg(class=String(message.sender[0]) === String(user._id) ? 'me' : 'out')
+                                        .head #[span.name=message.sender[1]] #[span.date= message.date.getDate() + '-' + (message.date.getMonth() + 1) + '-' + message.date.getFullYear() + ' | ' + message.date.getHours() + ':' + message.date.getMinutes()]
+                                        if (message.msg[0] === 'text')
+                                            .body !{message.msg[1]}
+                                        if (message.msg[0] === 'image')
+                                            .body.image: a(href="/groups/"+message.msg[1] target="_blank"): img(src='/groups/'+message.msg[1] alt="image")
+                                        if (message.msg[0] === 'file')
+                                            .body.file: a(href="/groups/"+message.msg[1] target="_blank" data-function="fileExtension('"+message.msg[1]+"')")=message.msg[1].slice(message.msg[1].indexOf('-') + 1,message.msg[1].length)
+                            .sender
+                                input(autofocus="true" type="text" placeholder="Message..." onkeypress="handleEnterKey(event,this)")
+                                button(onclick="sendMsg(this,'text')" title="Envoyer Message") &#xF124;
+                                .file(title="Envoyer fichier") #[input(type="file" onchange="sendMsg(this,'file')")] #[button &#xF15B;]
+                                .file(title="Envoyer Image") #[input(type="file" accept="image/*" onchange="sendMsg(this,'image')")] #[button &#xEC98;]
+            script(src="/js/group.student.js")
+        if (user.userType === 'Teacher')
+            .teacher
+                .group: .container 
+                    select(onchange="window.location.replace(window.location.origin+'/group/'+this.value)")
+                        option(hidden) Sélectionnez un Groupe
+                        each year in years
+                            each group in year.groups
+                                option(value=String(group.id))= year.year + ' ' + year.branch + ' - ' + year.module.name + ' - Semestre ' + year.module.serie + ' | Group ' + group.number
+                        else 
+                            option(disabled) Aucun groupe disponible!
+                    if (group)
+                        .content
+                            h2= group.year + ' ' + group.branch + ' - Group ' + group.number
+                            .messenger
+                                .messeges
+                                    each message in group.messages
+                                        .msg(class=String(message.sender[0]) === String(user._id) ? 'me' : 'out')
+                                            .head #[span.name=message.sender[1]] #[span.date= message.date.getDate() + '-' + (message.date.getMonth() + 1) + '-' + message.date.getFullYear() + ' | ' + message.date.getHours() + ':' + message.date.getMinutes()]
+                                            if (message.msg[0] === 'text')
+                                                .body !{message.msg[1]}
+                                            if (message.msg[0] === 'image')
+                                                .body.image: a(href="/groups/"+message.msg[1] target="_blank"): img(src='/groups/'+message.msg[1] alt="image")
+                                            if (message.msg[0] === 'file')
+                                                .body.file: a(href="/groups/"+message.msg[1] target="_blank" data-function="fileExtension('"+message.msg[1]+"')")=message.msg[1].slice(message.msg[1].indexOf('-') + 1,message.msg[1].length)
+                                .sender
+                                    input(autofocus="true" type="text" placeholder="Message..." onkeypress="handleEnterKey(event,this)")
+                                    button(onclick="sendMsg(this,'text')" title="Envoyer Message") &#xF124;
+                                    .file(title="Envoyer File") #[input(type="file" onchange="sendMsg(this,'file')")] #[button &#xF15B;]
+                                    .file(title="Envoyer Image") #[input(type="file" accept="image/*" onchange="sendMsg(this,'image')")] #[button &#xEC98;]
+                        script const groupId = !{JSON.stringify(groupId)};
+                        script(src="/js/group.student.js")
+        script(src="/js/group.handleFunction.js")
+        include includes/fr-footer

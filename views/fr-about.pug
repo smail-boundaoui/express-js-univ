@@ -1,0 +1,77 @@
+doctype html
+html(lang="fr")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Université - A Propos
+        link(rel="shortcut icon", href="/images/favicon.ico", type="image/x-icon")
+        link(rel="stylesheet", href="/css/global.css")
+        link(rel="stylesheet", href="/css/about.css")
+    body 
+        .body-overlay
+        include includes/en-nav
+        .about 
+            .container 
+                .about-text
+                    h2 À Propos de notre Université
+                    p Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore adipisci, quia ex amet ad tempore ipsam, culpa laudantium voluptatibus dolorem cumque aliquid nostrum asperiores deserunt deleniti quod sit illum beatae iste! Quasi, consectetur vero natus est laborum quam debitis! Minus deleniti ab nihil atque, quam in dolore quas perspiciatis repellat cumque sed recusandae assumenda ex doloribus? Incidunt exercitationem at velit.
+                hr
+                .depts 
+                    h2 Départements
+                    .depts-content
+                        .dept 
+                            img(src="/images/depts/computer-science.png" alt="icon")
+                            h3 L'informatique
+                        .dept 
+                            img(src="/images/depts/math.png" alt="icon")
+                            h3 Math 
+                        .dept 
+                            img(src="/images/depts/accounting.png" alt="icon")
+                            h3 Comptabilité 
+                        .dept 
+                            img(src="/images/depts/sports.png" alt="icon")
+                            h3 Sport 
+                        .center
+                        .dept 
+                            img(src="/images/depts/technology.png" alt="icon")
+                            h3 Technologie
+                        .dept 
+                            img(src="/images/depts/biology.png" alt="icon")
+                            h3 La biologie 
+                        .dept 
+                            img(src="/images/depts/law.png" alt="icon")
+                            h3 Droit 
+                        .dept 
+                            img(src="/images/depts/learning-material.png" alt="icon")
+                            h3 Langue 
+                hr
+                .gallery-text
+                    h2 Galerie 
+                    p Nous espérons que ces photos vous donneront une idée de notre université
+                .gallery 
+                    .images 
+                        img(src="/images/gallery/image (10).jpg" data-counter="0" alt="Gallery image")
+                        img(src="/images/gallery/image (8).jpg" data-counter="1" alt="Gallery image" class="middle")
+                        img(src="/images/gallery/image (9).jpg" data-counter="2" alt="Gallery image" )
+                        img(src="/images/gallery/image (7).jpg" data-counter="3" alt="Gallery image" )
+                        img(src="/images/gallery/image (1).jpg" data-counter="4" alt="Gallery image" class="middle")
+                        img(src="/images/gallery/image (2).jpg" data-counter="5" alt="Gallery image" )
+                        img(src="/images/gallery/image (3).jpg" data-counter="6" alt="Gallery image" )
+                        img(src="/images/gallery/image (4).jpg" data-counter="7" alt="Gallery image" class="middle")
+                        img(src="/images/gallery/image (6).jpg" data-counter="8" alt="Gallery image" )
+                    .popup 
+                        .image
+                            a.left
+                            a.right 
+                            img(src="" alt="image" width="" height="")
+                        .text
+                            p Image #[span 1] Sur 9
+                            .close
+        if (user && user.userType === 'Student')
+            - user.password = ''
+            script const user = !{JSON.stringify(user)}
+            script(src="/socket.io/socket.io.js")
+            script(src="/js/notifications.js")
+        include includes/en-footer
+        script(src="/js/gallery.js") 

@@ -1,0 +1,61 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title University
+        link(rel="shortcut icon", href="/images/favicon.ico", type="image/x-icon")
+        link(rel="stylesheet", href="/css/global.css")
+        link(rel="stylesheet", href="/css/home.css")
+    body 
+        include includes/en-nav
+        header 
+            .container
+                h1 Mohammed Bachir Ibrahimi University
+                p Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit laboriosam quo dolores aspernatur blanditiis temporibus ipsa recusandae, quibusdam consectetur at magni et vel, tempora unde nulla debitis architecto deserunt nihil libero illo nemo in rerum perferendis! Quaerat iste hic suscipit natus odio excepturi amet accusamus placeat explicabo totam commodi facilis impedit sit omnis libero, magnam id. Est accusamus dolor nulla.
+        svg(version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1440 126" xml:space="preserve")
+                path(d="M685.6,38.8C418.7-11.1,170.2,9.9,0,30v96h1440V30C1252.7,52.2,1010,99.4,685.6,38.8z")
+        .login 
+            .container
+                if (!user)
+                    .box 
+                        .left: div
+                            img(src="/images/login.jpg" alt="login" width="120" height="120")
+                            h2 Login Now
+                            |if you are a Student or a Teacher you can get your login information from the University Administration. #[br]
+                            |Otherwise you are welcome to browse our website as a Guest meaning you dont have to login. Thank YOU!
+                        form.right(action="/" method="POST") 
+                            h3 Choose Account Type 
+                            input(class="hidden" type="radio" id="teacher" name="account" value="Teachers" checked)
+                            label(for="teacher")
+                                img(src="/images/teacher.png" alt="Teacher")
+                                h5 Teacher
+                            input(class="hidden" type="radio" id="student" name="account" value="Students")
+                            label(for="student")
+                                img(src="/images/student.png" alt="Teacher")
+                                h5 Student
+                            .clear
+                            .inputs
+                                div
+                                    input(type="text" placeholder="Username" name="username" required)
+                                    i &#xEC92;
+                                div
+                                    input(type="password" placeholder="Password" name="password" required)
+                                    i &#xECB3;
+                                if (loginErr)
+                                    div.err= loginErr
+                                input(type="submit" value="Submit")
+                else 
+                    .user-box 
+                        p 
+                            |You are #[span logged in] as #[span #{user.userType}]
+                            br 
+                            |This gives you access to the #[span lessons] and the #[span group] that was automatically added to the #[span navigation bar] at the top, you can check it now
+                        h2 #{user.username}
+        if (user && user.userType === 'Student')
+            - user.password = ''
+            script const user = !{JSON.stringify(user)}
+            script(src="/socket.io/socket.io.js")
+            script(src="/js/notifications.js")
+        include includes/en-footer

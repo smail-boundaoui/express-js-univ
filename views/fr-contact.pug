@@ -1,0 +1,50 @@
+doctype html
+html(lang="fr")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Université - Contact
+        link(rel="shortcut icon", href="/images/favicon.ico", type="image/x-icon")
+        link(rel="stylesheet", href="/css/global.css")
+        link(rel="stylesheet", href="/css/contact.css")
+        script(src="https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.js")
+        link(rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.css")
+    body 
+        include includes/fr-nav
+        .contact-us
+            .container 
+                h2 Coordonnées
+                .contact-info 
+                    .info
+                        i &#xECD6;
+                        |BBA Anasser 34030 Algerie
+                    .info
+                        i &#xECE5;
+                        |+035 1234 345
+                    .info
+                        i &#xEB96;
+                        |univ.bba@domain.com
+                    .info
+                        i &#xF268;
+                        |www.univ@domain.com
+                h2 Formulaire de Contact
+                form.contact-form(action="/contact" method="POST")
+                    .left
+                        .custom
+                            input(type="text" placeholder="Prénom" name="fName")
+                            input(type="text" placeholder="Nom" name="lName")
+                        input(type="tel" placeholder="Tel" name="tel")
+                        input(type="email" placeholder="Adresse E-mail*" name="email" required)
+                        input(type="text" placeholder="Sujet*" name="subject" required)
+                    .right
+                        textarea(placeholder="Message...*" name="message" required)
+                        input(type="submit" value="Envoyer")
+                .map #[h2 Emplacement] #[#map]
+        if (user && user.userType === 'Student')
+            - user.password = ''
+            script const user = !{JSON.stringify(user)}
+            script(src="/socket.io/socket.io.js")
+            script(src="/js/notifications.js")
+        include includes/fr-footer
+        script(src="/js/map.js")

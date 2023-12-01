@@ -1,0 +1,38 @@
+doctype html
+html(lang="fr")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Université - Activités
+        link(rel="shortcut icon", href="/images/favicon.ico", type="image/x-icon")
+        link(rel="stylesheet", href="/css/global.css")
+        link(rel="stylesheet", href="/css/activities.css")
+    body 
+        include includes/fr-nav 
+        .activities 
+            .container 
+                h2 Activités et Annonces
+                .content 
+                    - const months = ['JAN','FEV','MAR','AVR','MAI','JUN','JUL','AUT','SEP','OCT','NOV','DEC']
+                    each activity in activities
+                        - const date = activity.date
+                        .adv
+                            .date-box #{date.getDate()}#[small /#{months[date.getMonth()]}]
+                            .head 
+                                h3.title #{activity.title}
+                                .discription #[span.full-date #{date.getDate()}-#{date.getMonth()+1}-#{date.getFullYear()}-#{date.getHours()}:#{date.getMinutes()}] | #[span.filter #{activity.faculty} ] | #[span.filter #{activity.filter} ]                      
+                            if (activity.description || activity.image || activity.files.length > 0)
+                                .body
+                                    if (activity.image)
+                                        img(src="/activities/images/"+activity.image alt="image")
+                                    if (activity.description)
+                                        p !{activity.description}
+                                    each file in activity.files
+                                        |- #[a(href="/activities/files/"+file target="_blank") #{file}] #[br]
+        if (user && user.userType === 'Student')
+            - user.password = ''
+            script const user = !{JSON.stringify(user)}
+            script(src="/socket.io/socket.io.js")
+            script(src="/js/notifications.js")
+        include includes/fr-footer

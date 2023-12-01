@@ -1,0 +1,63 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title University - Courses
+        link(rel="shortcut icon", href="/images/favicon.ico", type="image/x-icon")
+        link(rel="stylesheet", href="/css/global.css")
+        link(rel="stylesheet", href="/css/courses.css")
+    body 
+        include includes/en-nav
+        script const lang = !{JSON.stringify(lang)}
+        if (user.userType == 'Student')
+            .student
+                .courses: .container
+                    h2= user .faculty + ' - ' + user.year + ' ' + user.branch
+                    .serie 
+                        span Semestre: 
+                        input(type="radio" id="serie1" value="1" name="serie" checked=serie==1?true:false)
+                        label(for="serie1"): a(href="/courses?serie=1") 1 
+                        input(type="radio" id="serie2" value="2" name="serie" checked=serie==2?true:false)
+                        label(for="serie2"): a(href="/courses?serie=2") 2
+                    select#module
+                        option(hidden selected) Select a Module
+                        each mod,index in modules
+                            option(value=index)= mod.name 
+                        else 
+                            option(disabled) No Modules Available!
+                    .content
+            if (modules)
+                script const modules = !{JSON.stringify(modules)}
+                script(src="/js/fileEx.js")
+                script(src="/js/courses.js")
+                script(src="/js/courses.student.js")
+        if (user.userType == 'Teacher')
+            .teacher
+                .courses: .container
+                    h2 Courses Management
+                    select#module
+                        option(hidden selected) Select a Branch
+                        each mod,index in modules
+                            option(value=index)= mod.year + ' ' + mod.branch + ' - Semestre ' + mod.serie + ' - ' + mod.name 
+                        else 
+                            option(disabled) No Modules Available!
+                    .content
+            if (modules)
+                script const modules = !{JSON.stringify(modules)}
+                script(src="/js/fileEx.js")
+                script(src="/js/courses.js")
+                script(src="/js/courses.teacher.js")
+                if (branch)
+                    script.
+                        for (const option of document.getElementById('module').children) {
+                            option.selected = option.value == #{branch} ? true:false 
+                        }
+                        document.getElementById('module').dispatchEvent(new Event('change'))
+        if (user && user.userType === 'Student')
+            - user.password = ''
+            script const user = !{JSON.stringify(user)}
+            script(src="/socket.io/socket.io.js")
+            script(src="/js/notifications.js")
+        include includes/en-footer
