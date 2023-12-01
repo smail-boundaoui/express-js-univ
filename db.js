@@ -1,11 +1,8 @@
 const { MongoClient } = require('mongodb')
 
-const PORT = '27017',
-    DB = 'University'
-
 const connect = () => {
     return new Promise((resolve, reject) => {
-        MongoClient.connect('mongodb://localhost:/' + PORT + '/' + DB, (err, client) => {
+        MongoClient.connect(process.env.DB_URI, (err, client) => {
             resolve(client)
             reject(err)
         })
