@@ -1,0 +1,115 @@
+/* Start Account */
+
+.account hr {
+    margin: 20px 0 40px;
+}
+
+.account .info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.account .info h2 {
+    margin: 0;
+    background: var(--main-color);
+    color: #fff;
+    padding: 3px 15px;
+    border-radius: 3px;
+}
+
+.account .info input {
+    background-color: #444;
+    border: none;
+    color: #fff;
+    padding: 10px 30px;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: background-color 0.4s;
+}
+
+.account .info input:hover {
+    background-color: #666;
+}
+
+.account .change-pass {
+    width: 500px;
+    background-color: #fff;
+    margin: 0 auto 50px;
+    padding: 20px;
+    overflow: hidden;
+    border-radius: 3px;
+    box-shadow: 0 0 4px 0 #aaa;
+}
+
+.account .change-pass h3 {
+    margin: 0 0 20px;
+    color: var(--main-color);
+}
+
+.account .change-pass input[type='password'] {
+    display: block;
+    width: 100%;
+    margin-bottom: 12px;
+    padding: 8px;
+    border: 1px solid #aaa;
+    border-radius: 3px;
+    background-color: #eee;
+}
+
+.account .change-pass input[type='password']:focus {
+    border-color: var(--main-color);
+}
+
+.account .change-pass input[type='password']:first-of-type {
+    margin-bottom: 30px;
+}
+
+.account .change-pass input[type='submit'] {
+    background-color: var(--main-color);
+    color: #fff;
+    border: none;
+    padding: 8px 30px;
+    cursor: pointer;
+    float: right;
+    border-radius: 3px;
+    margin-top: 8px;
+    transition: opacity 0.4s;
+}
+
+.account .change-pass input[type='submit']:hover {
+    opacity: 0.8;
+}
+
+.account .change-pass .flash {
+    float: left;
+    margin-top: 16px;
+    font-size: 0.9rem;
+}
+
+.account .change-pass .flash.err {
+    color: var(--second-color);
+}
+.account .change-pass .flash.ok {
+    color: var(--main-color);
+}
+
+/* End Account */
+
+/* Start Media Query */
+
+@media (max-width: 768px) {
+    .account .info {
+        flex-direction: column;
+    }
+    .account .info h2 {
+        margin-bottom: 15px;
+    }
+    .account .change-pass {
+        max-width: 500px;
+        width: 100%;
+    }
+}
+
+/* End Media Query */

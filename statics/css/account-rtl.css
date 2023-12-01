@@ -1,0 +1,11 @@
+/* Start Account */
+
+.account .change-pass input[type='submit'] {
+    float: left;
+}
+
+.account .change-pass .flash {
+    float: right;
+}
+
+/* End Account */

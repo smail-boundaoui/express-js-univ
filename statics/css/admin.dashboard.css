@@ -1,0 +1,57 @@
+body {
+    padding: 120px 0 0 0;
+    margin: 0;
+    background-color: #fff;
+    position: relative;
+}
+
+.note {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--second-color);
+    color: #fff;
+    padding: 12px 90px 14px;
+    border-radius: 0 0 5px 5px;
+    font-size: 0.9rem;
+    box-shadow: 0 0 5px 0 #000;
+}
+
+.note i {
+    font-family: 'fontello';
+    font-style: normal;
+    font-size: 1.2rem;
+}
+
+.note span {
+    margin: 0 10px;
+}
+
+.dashboard {
+    background-color: var(--main-color);
+    width: fit-content;
+    color: #fff;
+    padding: 30px 50px;
+    margin: auto;
+    border-radius: 3px;
+    box-shadow: 0 0 6px 1px #000;
+}
+.dashboard h2 {
+    margin: 0 auto 30px;
+    text-align: center;
+    font-size: 2rem;
+}
+.dashboard h3 {
+}
+.dashboard .parent {
+    list-style: inside disc;
+}
+.dashboard .parent li:not(:last-of-type) {
+    margin-bottom: 8px;
+}
+.dashboard .parent .child {
+    list-style: inside circle;
+    padding-left: 30px;
+    padding-top: 15px;
+}

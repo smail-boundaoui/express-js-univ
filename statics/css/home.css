@@ -1,0 +1,324 @@
+body {
+    padding-top: 0;
+}
+/* Start Header */
+
+header {
+    background-color: var(--main-color);
+    color: #fff;
+    padding-top: 60px;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 2.666rem;
+    text-shadow: 0px 10px 20px #000;
+}
+
+header p {
+    line-height: 2;
+    text-shadow: 0px 5px 10px #000;
+}
+
+header + svg {
+    transform: rotate(-180deg) translateY(5px);
+}
+
+header + svg path {
+    fill: var(--main-color);
+}
+
+/* End Header */
+
+/* Start Login */
+
+.login {
+    padding: 60px 0;
+}
+
+.login .box {
+    width: 1000px;
+    height: 600px;
+    margin: auto;
+    padding: 8px;
+}
+
+.login .left,
+.login .right {
+    float: left;
+    width: 50%;
+    height: 100%;
+}
+
+.login .left {
+    background-color: var(--main-color);
+    color: #fff;
+    text-align: center;
+    padding: 30px 20px;
+    border-radius: 10px 0 0 10px;
+}
+
+.login .left img {
+    border-radius: 50%;
+    margin: 70px auto 20px;
+}
+
+.login .left h2 {
+    margin-top: 0;
+}
+
+.login .right {
+    border: 3px solid var(--main-color);
+    text-align: center;
+    border-radius: 0 10px 10px 0;
+    background-color: #fff;
+}
+
+.login .right h3 {
+    color: var(--main-color);
+    margin: 90px auto 30px;
+}
+.login .right label {
+    display: block;
+    float: left;
+    width: 130px;
+    padding: 15px 0;
+    border: 2px solid #aaa;
+    border-radius: 3px;
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+.login .right label:hover {
+    opacity: 1;
+}
+
+.login .right label:first-of-type {
+    margin-left: calc((100% - 290px) / 2);
+    margin-right: 30px;
+}
+
+.login .right label h5 {
+    margin: 7px auto 0;
+}
+
+.login .right input[type='radio']:checked + label {
+    border-color: var(--main-color);
+    opacity: 1;
+}
+
+.login .right .inputs {
+    margin-top: 30px;
+}
+
+.login .right .inputs div {
+    position: relative;
+}
+
+.login .right .inputs .err {
+    color: var(--second-color);
+    font-size: 0.9rem;
+}
+
+.login .right .inputs input:not([type='submit']) {
+    display: block;
+    width: 290px;
+    height: 40px;
+    margin: 0 auto 10px;
+    font-size: 0.933rem;
+    border: 2px solid #aaa;
+    border-radius: 3px;
+    padding-left: 48px;
+}
+
+.login .right .inputs input:not([type='submit']):focus {
+    border-color: var(--main-color);
+}
+
+.login .right .inputs input:not([type='submit']):focus + i {
+    color: var(--main-color);
+    border-color: var(--main-color);
+}
+
+.login .right .inputs i {
+    font-family: 'fontello';
+    font-style: normal;
+    position: absolute;
+    top: 50%;
+    left: 112px;
+    transform: translateY(-50%);
+    line-height: 40px;
+    border-color: #aaa;
+    border-style: solid;
+    border-width: 0 2px 0 0;
+    padding-right: 12px;
+    color: #777;
+}
+
+.login .right .inputs input[type='submit'] {
+    width: 90px;
+    color: #fff;
+    background-color: var(--main-color);
+    border: none;
+    padding: 8px 0;
+    border-radius: 3px;
+    margin-left: calc(100% - 280px);
+    margin-top: 10px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.login .right .inputs input[type='submit']:hover {
+    opacity: 0.9;
+}
+
+/* User Box */
+
+.login .user-box {
+    background-color: #fff;
+    padding: 40px;
+    text-align: center;
+    width: 660px;
+    margin: 20px auto;
+    border-radius: 3px;
+    box-shadow: 0 0 4px 0 #aaa;
+}
+
+.login .user-box h2 {
+    margin: 20px auto 0;
+    color: var(--main-color);
+}
+
+.login .user-box p {
+    margin: 0 auto;
+}
+
+.login .user-box p span {
+    color: var(--second-color);
+}
+
+/* End Login */
+
+/* Start Media Query */
+
+@media (max-width: 768px) {
+    .login .box {
+        width: 100%;
+        height: auto;
+    }
+
+    .login .left,
+    .login .right {
+        float: none;
+        width: 300px;
+        padding: 30px 20px;
+        height: auto;
+        margin: auto;
+    }
+
+    .login .left {
+        height: auto;
+        border-radius: 10px 10px 0 0;
+    }
+
+    .login .right {
+        border-radius: 0 0 10px 10px;
+    }
+
+    .login .left img,
+    .login .right h3 {
+        margin-top: 0;
+    }
+
+    .login .left img {
+        width: 90px;
+        height: 90px;
+    }
+
+    .login .right label {
+        width: 100px;
+    }
+
+    .login .right label:first-of-type {
+        margin-left: 7px;
+        margin-right: 40px;
+    }
+
+    .login .right label img {
+        width: 50px;
+    }
+
+    .login .right .inputs input:not([type='submit']) {
+        width: 250px;
+    }
+
+    .login .right .inputs i {
+        left: 18px;
+    }
+    .login .right .inputs input[type='submit'] {
+        margin-left: calc(100% - 94px);
+    }
+
+    .login .user-box {
+        width: 100%;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 991px) {
+    header {
+        padding-top: 94px;
+    }
+
+    header h1 {
+        font-size: 2.5rem;
+    }
+
+    .login .box {
+        width: 100%;
+        height: auto;
+    }
+
+    .login .left,
+    .login .right {
+        float: none;
+        width: 500px;
+        padding: 30px;
+        height: auto;
+        margin: auto;
+    }
+
+    .login .left {
+        border-radius: 10px 10px 0 0;
+    }
+
+    .login .right {
+        border-radius: 0 0 10px 10px;
+    }
+
+    .login .left img,
+    .login .right h3 {
+        margin-top: 0;
+    }
+    .login .right .inputs i {
+        left: 86px;
+    }
+    .login .right .inputs input[type='submit'] {
+        margin-left: calc(100% - 235px);
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+    .login .box {
+        width: 950px;
+    }
+
+    .login .right .inputs i {
+        left: 100px;
+    }
+
+    .login .right .inputs input[type='submit'] {
+        margin-left: calc(100% - 260px);
+    }
+}
+
+/* End Media Query */

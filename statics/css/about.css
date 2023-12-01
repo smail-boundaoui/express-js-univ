@@ -1,0 +1,244 @@
+/* Start About */
+
+.about {
+    padding: 40px 0;
+}
+
+.about .about-text {
+    text-align: justify;
+    line-height: 2;
+}
+.about .gallery-text {
+    text-align: center;
+}
+
+.about p {
+    margin: 0 0 30px 0;
+    color: #555;
+}
+
+.about h2 {
+    margin: 0 0 20px 0;
+    color: var(--main-color);
+}
+
+.about hr {
+    margin: 30px 0;
+}
+
+/* Departements */
+
+.about .depts h2 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.about .depts .depts-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.about .depts .depts-content .dept {
+    width: 23%;
+    background-color: #fff;
+    margin-bottom: 2%;
+    text-align: center;
+    padding: 30px;
+    border-radius: 3px;
+    box-shadow: 0 0 4px 0 #ccc;
+    transition: box-shadow 0.5s;
+}
+
+.about .depts .depts-content .center {
+    display: none;
+}
+
+.about .depts .depts-content .dept:hover {
+    box-shadow: 0 0 3px 0 var(--main-color);
+}
+
+.about .depts .depts-content .dept h3 {
+    margin-bottom: 0;
+    font-weight: 100;
+}
+
+/* Gallery */
+
+.about .gallery .images {
+    overflow: hidden;
+    padding: 5px;
+}
+
+.about .gallery .images img {
+    float: left;
+    width: 32%;
+    height: 220px;
+    margin-bottom: 2%;
+    border-radius: 3px;
+    box-shadow: 0 0 5px 1px #aaa;
+    cursor: pointer;
+    transition: opacity 0.6s;
+}
+
+.about .gallery .images img.middle {
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+.about .gallery .images img:hover {
+    opacity: 0.6;
+}
+
+/* Popup */
+
+.about .gallery .popup {
+    position: absolute;
+    max-width: 100%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.5s;
+    animation: popupCloseAnimation 1s forwards;
+}
+
+.about .gallery .popup.active {
+    opacity: 1;
+    z-index: 999;
+    animation: popupOpenAnimation 1s;
+}
+
+.about .gallery .popup .image {
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    position: relative;
+}
+
+.about .gallery .popup .image img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.about .gallery .popup .image a {
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    background-repeat: no-repeat;
+    opacity: 0;
+    transition: transition, 0.5s;
+}
+
+.about .gallery .popup .image a.left {
+    left: 0;
+    background-image: url('/images/prev.png');
+    background-position: center left;
+}
+.about .gallery .popup .image a.right {
+    right: 0;
+    background-image: url('/images/next.png');
+    background-position: center right;
+}
+
+.about .gallery .popup .image a:hover {
+    opacity: 1;
+}
+
+.about .gallery .popup .text {
+    overflow: hidden;
+    height: 35px;
+    padding: 0 8px;
+    line-height: 35px;
+}
+
+.about .gallery .popup .text p,
+.about .gallery .popup .text .close {
+    opacity: 0.7;
+    transition: 0.3s;
+}
+.about .gallery .popup .text p:hover,
+.about .gallery .popup .text .close:hover {
+    opacity: 1;
+}
+
+.about .gallery .popup .text p {
+    margin: 0;
+    float: left;
+    color: #fff;
+    font-size: 0.933rem;
+    cursor: default;
+}
+
+.about .gallery .popup .text .close {
+    float: right;
+    width: 27px;
+    height: 27px;
+    margin-top: 4px;
+    background-image: url('/images/close.png');
+    cursor: pointer;
+}
+
+@keyframes popupOpenAnimation {
+    0% {
+        transform: translate(-50%, -50%) scale(0, 0);
+    }
+
+    100% {
+        transform: translate(-50%, -50%) scale(1, 1);
+    }
+}
+
+@keyframes popupCloseAnimation {
+    0% {
+        transform: translate(-50%, -50%) scale(1, 1);
+        opacity: 1;
+    }
+
+    80% {
+        transform: translate(-50%, -50%) scale(0, 0);
+        opacity: 0;
+    }
+
+    100% {
+        z-index: -1;
+        opacity: 0;
+    }
+}
+
+/* End About */
+
+/* Start Media Query */
+
+@media (max-width: 768px) {
+    .about .about-text {
+        text-align: center;
+    }
+
+    .about .depts .depts-content {
+        flex-direction: column;
+    }
+
+    .about .depts .depts-content .dept {
+        width: 100%;
+        max-width: 360px;
+        margin: 0 auto 15px;
+    }
+    .about .gallery .images img {
+        height: 120px;
+    }
+}
+@media (min-width: 769px) and (max-width: 991px) {
+    .about .depts .depts-content .dept {
+        width: 32%;
+    }
+    .about .depts .depts-content .center {
+        display: block;
+        width: 32%;
+    }
+    .about .gallery .images img {
+        height: 160px;
+    }
+}
+
+/* End Media Query */

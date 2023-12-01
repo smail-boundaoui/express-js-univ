@@ -1,0 +1,101 @@
+/* Start Login */
+
+.login .left,
+.login .right {
+    float: right;
+}
+
+.login .left {
+    border-radius: 0 10px 10px 0;
+}
+
+.login .right {
+    border-radius: 10px 0 0 10px;
+}
+
+.login .right label {
+    float: right;
+}
+
+.login .right label:first-of-type {
+    margin-right: calc((100% - 290px) / 2);
+    margin-left: 30px;
+}
+
+.login .right .inputs input:not([type='submit']) {
+    padding-left: 0;
+    padding-right: 48px;
+}
+
+.login .right .inputs i {
+    left: auto;
+    right: 112px;
+    border-width: 0 0 0 2px;
+    padding-right: 0;
+    padding-left: 12px;
+}
+
+.login .right .inputs input[type='submit'] {
+    margin-left: 0;
+    margin-right: calc(100% - 280px);
+}
+
+/* End Login */
+
+/* Start Media Query */
+
+@media (max-width: 768px) {
+    .login .right label:first-of-type {
+        margin-left: 40px;
+        margin-right: 7px;
+    }
+    .login .left {
+        height: auto;
+        border-radius: 10px 10px 0 0;
+    }
+
+    .login .right {
+        border-radius: 0 0 10px 10px;
+    }
+
+    .login .right .inputs i {
+        left: auto;
+        right: 18px;
+    }
+    .login .right .inputs input[type='submit'] {
+        margin-left: 0;
+        margin-right: calc(100% - 94px);
+    }
+}
+
+@media (min-width: 769px) and (max-width: 991px) {
+    .login .left {
+        border-radius: 10px 10px 0 0;
+    }
+
+    .login .right {
+        border-radius: 0 0 10px 10px;
+    }
+    .login .right .inputs i {
+        left: auto;
+        right: 86px;
+    }
+    .login .right .inputs input[type='submit'] {
+        margin-left: 0;
+        margin-right: calc(100% - 235px);
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+    .login .right .inputs i {
+        left: auto;
+        right: 100px;
+    }
+
+    .login .right .inputs input[type='submit'] {
+        margin-left: 0;
+        margin-right: calc(100% - 260px);
+    }
+}
+
+/* End Media Query */

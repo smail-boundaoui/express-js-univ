@@ -1,0 +1,499 @@
+html {
+    scroll-behavior: smooth;
+    font-family: 'poppins', 'droid';
+    font-size: 15px;
+    --main-color: #016396;
+    --second-color: #c02327;
+}
+
+input,
+textarea,
+button,
+select {
+    font-family: 'poppins', 'droid';
+}
+
+body {
+    padding-top: 53px;
+    margin: 0;
+    overflow-x: hidden;
+    background-color: #ddd;
+}
+
+ul,
+ol {
+    list-style: none;
+    padding: 0;
+    margin: auto;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.container {
+    width: 1170px;
+    margin: 0 auto;
+    padding: 0 15px;
+    overflow: hidden;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.clear {
+    clear: both;
+}
+
+.body-overlay {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000000e6;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+.body-overlay.active {
+    opacity: 1;
+    z-index: 998;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    outline: none;
+}
+
+::selection {
+    color: #fff;
+    background-color: var(--second-color);
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+@font-face {
+    font-family: 'poppins';
+    font-weight: normal;
+    src: url('../fonts/poppins/Poppins-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'poppins';
+    font-weight: bold;
+    src: url('../fonts/poppins/Poppins-Bold.ttf');
+}
+
+@font-face {
+    font-family: 'fontello';
+    src: url('../fonts/fontello/fontello.eot?2350836');
+    src: url('../fonts/fontello/fontello.eot?2350836#iefix') format('embedded-opentype'),
+        url('../fonts/fontello/fontello.woff2?2350836') format('woff2'),
+        url('../fonts/fontello/fontello.woff?2350836') format('woff'),
+        url('../fonts/fontello/fontello.ttf?2350836') format('truetype'),
+        url('../fonts/fontello/fontello.svg?2350836#fontello') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'droid';
+    font-weight: normal;
+    font-style: normal;
+    src: url('../fonts/droid_arabic_kufi/DroidKufi-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'droid';
+    font-weight: bold;
+    font-style: normal;
+    src: url('../fonts/droid_arabic_kufi/DroidKufi-Bold.ttf');
+}
+
+/* Start Nav */
+
+nav {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px 0;
+    background: #fff;
+    border-radius: 0 0 3px 3px;
+    box-shadow: 0 0 4px 0 #aaa;
+    z-index: 99;
+}
+
+nav .container {
+    overflow: visible;
+}
+
+nav .container::after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+nav .logo {
+    float: left;
+}
+
+nav .logo img {
+    vertical-align: middle;
+}
+
+nav .links {
+    float: right;
+    margin-top: 5px;
+}
+
+nav .links > li {
+    display: inline-block;
+    margin: auto 12px;
+}
+
+nav .links li:hover {
+    color: var(--main-color);
+}
+
+nav .links li .active {
+    color: var(--main-color);
+    font-weight: bold;
+}
+/********/
+nav .links .lang {
+    position: relative;
+    cursor: pointer;
+}
+
+nav .links .lang::before {
+    content: '\EDB2';
+    font-family: 'fontello';
+    margin-right: 6px;
+}
+
+nav .links .lang::after {
+    content: '\F107';
+    font-family: 'fontello';
+    margin-left: 3px;
+    display: inline-block;
+    transition: transform 0.3s;
+}
+
+nav .links .lang:hover .dropdown {
+    display: block;
+}
+
+nav .links .lang:hover::after {
+    transform: rotate(180deg);
+}
+
+nav .links .dropdown {
+    position: absolute;
+    top: 21px;
+    left: 50%;
+    width: 100px;
+    font-size: 0.866rem;
+    background-color: #222;
+    color: #fff;
+    padding: 15px 10px;
+    transform: translateX(-50%);
+    border-radius: 3px;
+    display: none;
+}
+
+nav .links .dropdown li {
+    transition: padding 0.3s, color 0.3s;
+}
+
+nav .links .dropdown li:not(:last-of-type) {
+    padding-bottom: 8px;
+}
+
+nav .links .dropdown li:hover {
+    padding-left: 8px;
+    color: var(--second-color);
+}
+
+nav .links .dropdown li a {
+    display: block;
+}
+
+nav .links .dropdown li.selected a::after {
+    content: '\EB9A';
+    font-family: 'fontello';
+    font-style: normal;
+    margin-left: 6px;
+}
+
+/********/
+
+nav .links .account a::before {
+    content: '\EDA7';
+    font-family: 'fontello';
+    font-style: normal;
+    margin-right: 6px;
+}
+
+/*****/
+
+nav .links > li.notification {
+    position: relative;
+}
+
+nav .links > li.notification.ntfOn a {
+    color: var(--second-color);
+}
+
+nav .links > li.notification span {
+    position: absolute;
+    background-color: var(--second-color);
+    color: #fff;
+    border-radius: 30px;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    line-height: 20px;
+    font-size: 0.9rem;
+    top: -10px;
+    right: -15px;
+    display: none;
+}
+
+nav .links > li.notification.ntfOn span {
+    display: block;
+}
+
+nav .trigger {
+    display: none;
+}
+
+/* End Nav */
+
+/* Start Footer */
+
+footer {
+    background-color: var(--main-color);
+    color: #eee;
+}
+
+footer .container > div {
+    float: left;
+    width: 33.33%;
+    padding: 30px;
+}
+
+footer h2 {
+    margin-top: 0;
+    color: var(--second-color);
+}
+
+footer .content p {
+    font-size: 0.933rem;
+    line-height: 1.6;
+    text-align: justify;
+}
+
+footer .sitemap ul {
+    overflow: hidden;
+}
+footer .sitemap ul li {
+    float: left;
+    margin: 0 3.33% 12px 0;
+    width: 30%;
+}
+
+footer .sitemap a {
+    text-decoration: underline;
+}
+
+footer .sitemap a:hover {
+    text-decoration: none;
+    color: var(--second-color);
+}
+
+footer .contact div {
+    line-height: 1.8;
+}
+
+footer .contact a {
+    text-decoration: underline;
+    color: #fff;
+}
+
+footer .contact a:hover {
+    color: var(--second-color);
+}
+
+footer .copyright {
+    text-align: center;
+    background-color: #00314b;
+    padding: 10px 0;
+    font-size: 0.933rem;
+}
+
+/* End Footer */
+
+/* Start Media Query */
+
+@media (max-width: 768px) {
+    /* Global */
+    html {
+        font-size: 13px;
+    }
+    .container {
+        width: 100%;
+    }
+    /* Nav */
+    nav {
+        left: 0;
+        transform: none;
+        width: 100%;
+    }
+    nav .logo img {
+        width: 110px;
+    }
+
+    nav .trigger {
+        display: block;
+        width: 28px;
+        height: 25px;
+        float: right;
+        background-color: var(--main-color);
+        border: 2px solid var(--main-color);
+        border-radius: 2px;
+        color: #fff;
+    }
+
+    nav .trigger i::before {
+        content: '\F0C9';
+        font-family: 'fontello';
+        font-style: normal;
+        font-size: 1rem;
+    }
+
+    nav .trigger.open i::before {
+        content: '\EB9B';
+    }
+
+    nav .links {
+        display: none;
+        width: 100%;
+        margin-top: 0;
+    }
+
+    nav .links.open {
+        display: block;
+    }
+
+    nav .links > li {
+        display: block;
+        margin-top: 8px;
+        margin: 8px 0 0;
+    }
+
+    nav .links > li > a,
+    nav .links > li:last-of-type {
+        display: block;
+        background-color: var(--main-color);
+        color: #fff;
+        padding: 4px 10px;
+        border-radius: 2px;
+    }
+
+    nav .links li .active {
+        background-color: var(--second-color);
+        color: #fff;
+        font-weight: 100;
+    }
+
+    nav .links > li.notification span {
+        left: auto;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    /* Footer */
+
+    footer .container > div {
+        width: 100%;
+        padding: 20px 0;
+    }
+
+    footer .container > div:not(:last-of-type) {
+        padding-bottom: 0;
+    }
+
+    footer .sitemap ul li {
+        width: auto;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 991px) {
+    /* Global */
+    html {
+        font-size: 14px;
+    }
+    body {
+        padding-top: 94px;
+    }
+    .container {
+        width: 750px;
+    }
+    /* Nav */
+    nav .logo,
+    nav .links {
+        width: 100%;
+        text-align: center;
+    }
+    nav .logo {
+        margin-bottom: 15px;
+    }
+    nav .links .dropdown {
+        text-align: left;
+    }
+    /* Footer */
+
+    footer .container > div {
+        width: 50%;
+    }
+
+    footer .container .content {
+        width: 100%;
+        padding-bottom: 0;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+    /* Global */
+    html {
+        font-size: 14px;
+    }
+    .container {
+        width: 970px;
+    }
+}
+
+/* End Media Query */

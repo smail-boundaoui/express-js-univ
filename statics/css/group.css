@@ -1,0 +1,322 @@
+/* Start Student */
+
+.group {
+    padding: 30px 0;
+}
+
+.group h2 {
+    text-align: center;
+    color: var(--main-color);
+    margin: 0 0 20px;
+}
+
+.group .content {
+    padding-bottom: 3px;
+}
+
+.group .content .messenger {
+    position: relative;
+    background-color: #fff;
+    width: 100%;
+    height: 560px;
+    border-radius: 4px;
+    box-shadow: 0 0 3px 0 #aaa;
+}
+
+.group .content .messenger .messeges {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: calc(100% - 100px);
+    overflow-x: hidden;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+}
+
+.group .content .messenger .messeges .msg {
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+}
+
+.group .content .messenger .messeges .msg.out {
+    align-items: flex-start;
+}
+.group .content .messenger .messeges .msg.me {
+    align-items: flex-end;
+}
+
+.group .content .messenger .messeges .msg .head {
+    margin-bottom: 8px;
+    width: 100%;
+}
+
+.group .content .messenger .messeges .msg .head .name {
+    font-size: 0.8rem;
+    background-color: var(--second-color);
+    color: #fff;
+    padding: 4px 8px;
+    border-radius: 20px 20px 20px 0;
+    margin-right: 4px;
+    text-shadow: 0 0 4px #000;
+}
+
+.group .content .messenger .messeges .msg.me .head .name {
+    margin-right: 0;
+    margin-left: 4px;
+    border-radius: 20px 20px 0 20px;
+    float: right;
+    background-color: #555;
+}
+
+.group .content .messenger .messeges .msg .head .date {
+    background-color: #ccc;
+    padding: 3px 8px;
+    font-size: 0.8rem;
+}
+
+.group .content .messenger .messeges .msg.me .head .date {
+    float: right;
+}
+
+.group .content .messenger .messeges .msg .body {
+    width: fit-content;
+    background-color: var(--main-color);
+    padding: 12px 15px;
+    font-size: 1rem;
+    border-radius: 0 100px 100px 40px;
+    color: #fff;
+    word-break: break-all;
+    overflow: hidden;
+}
+
+.group .content .messenger .messeges .msg.me .body {
+    border-radius: 100px 0 40px 100px;
+    background-color: #555;
+}
+
+.group .content .messenger .messeges .msg .body.file {
+    border-radius: 0 6px 6px 6px;
+}
+
+.group .content .messenger .messeges .msg .body.file a:hover {
+    text-decoration: underline;
+}
+
+.group .content .messenger .messeges .msg .body.file a::before {
+    content: '\F15B';
+    font-family: 'fontello';
+    font-style: normal;
+    display: block;
+    text-align: center;
+    font-size: 3.333rem;
+    margin-bottom: 8px;
+}
+
+.group .content .messenger .messeges .msg.me .body.image,
+.group .content .messenger .messeges .msg.me .body.file {
+    border-radius: 6px 0 6px 6px;
+}
+
+.group .content .messenger .messeges .msg .body.file a.pdf::before {
+    content: '\F1C1';
+}
+.group .content .messenger .messeges .msg .body.file a.word::before {
+    content: '\F1C2';
+}
+.group .content .messenger .messeges .msg .body.file a.ppt::before {
+    content: '\F1C4';
+}
+.group .content .messenger .messeges .msg .body.file a.exel::before {
+    content: '\F1C3';
+}
+.group .content .messenger .messeges .msg .body.file a.rar::before {
+    content: '\F1C6';
+}
+.group .content .messenger .messeges .msg .body.file a.code::before {
+    content: '\F1C9';
+}
+.group .content .messenger .messeges .msg .body.file a.video::before {
+    content: '\F1C8';
+}
+.group .content .messenger .messeges .msg .body.file a.audio::before {
+    content: '\F1C7';
+}
+
+.group .content .messenger .messeges .msg .body.image {
+    border-radius: 0 6px 6px 6px;
+    max-width: 60%;
+    padding: 6px;
+}
+
+.group .content .messenger .messeges .msg .body.image a img {
+    max-width: 100%;
+}
+
+.group .content .messenger .sender {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    width: calc(100% - 20px);
+    height: 80px;
+    padding: 15px;
+    background-color: #eee;
+    border-radius: 50px;
+    box-shadow: 0 0 2px 0 #aaa;
+}
+
+.group .content .messenger .sender > * {
+    float: left;
+    height: 50px;
+}
+
+.group .content .messenger .sender input[type='text'] {
+    font-size: 1rem;
+    width: 90%;
+    border: none;
+    padding-left: 15px;
+    padding-right: 50px;
+    border-radius: 30px;
+    box-shadow: 0 0 5px 0 #ccc;
+    transition: box-shadow 0.4s;
+}
+
+.group .content .messenger .sender input[type='text']:hover,
+.group .content .messenger .sender input[type='text']:focus {
+    box-shadow: 0 0 2px 0 var(--main-color);
+}
+
+.group .content .messenger .sender button {
+    font-family: 'fontello';
+    font-style: normal;
+    color: #fff;
+    background-color: var(--main-color);
+    border: none;
+    cursor: pointer;
+}
+
+.group .content .messenger .sender > button {
+    background-color: transparent;
+    color: var(--main-color);
+    margin-left: -5%;
+    font-size: 1.733rem;
+    transform: rotate(45deg);
+}
+
+.group .content .messenger .sender .file {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    margin-top: 5px;
+    border-radius: 35px;
+    overflow: hidden;
+}
+
+.group .content .messenger .sender .file:first-of-type {
+    margin-left: calc(10% - 90px);
+    margin-right: 10px;
+}
+
+.group .content .messenger .sender .file > * {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.group .content .messenger .sender .file input[type='file'] {
+    z-index: 2;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.group .content .messenger .sender .file input[type='file']:hover + button {
+    opacity: 0.8;
+}
+
+.group .content .messenger .sender .file button {
+    font-size: 1.066rem;
+    z-index: 1;
+}
+
+/* End Student */
+
+/* Start Teacher */
+
+.teacher .group h2 {
+    margin-top: 20px;
+}
+
+.teacher .group select {
+    appearance: none;
+    width: 100%;
+    padding: 15px 20px;
+    cursor: pointer;
+    border: 0;
+    box-shadow: 0 0 5px 0 #aaa;
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: #555;
+    transition: background-color 0.4s;
+}
+
+.teacher .group select:hover {
+    background-color: #dadada;
+    color: var(--main-color);
+}
+
+.teacher .group select option {
+    font-weight: bold;
+}
+
+/* End Teacher */
+
+/* Start Media Query */
+
+@media (max-width: 768px) {
+    .group .content .messenger {
+        height: 700px;
+    }
+    .group .content .messenger .sender input[type='text'] {
+        width: 70%;
+    }
+    .group .content .messenger .sender > button {
+        margin-left: -12%;
+    }
+    .group .content .messenger .sender .file:first-of-type {
+        margin-left: calc(10% - 20px);
+        margin-right: 10px;
+    }
+    .group .content .messenger .messeges .msg.me .body {
+        border-radius: 20px 0 10px 20px;
+    }
+    .group .content .messenger .messeges .msg.out .body {
+        border-radius: 0 20px 20px 10px;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 991px) {
+    .group .content .messenger .sender input[type='text'] {
+        width: 83%;
+    }
+    .group .content .messenger .sender > button {
+        margin-left: -7%;
+    }
+    .group .content .messenger .sender .file:first-of-type {
+        margin-left: calc(10% - 46px);
+        margin-right: 10px;
+    }
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+    .group .content .messenger .sender input[type='text'] {
+        width: 88%;
+    }
+    .group .content .messenger .sender .file:first-of-type {
+        margin-left: calc(10% - 74px);
+        margin-right: 10px;
+    }
+}
+
+/* End Media Query */

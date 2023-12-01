@@ -1,0 +1,82 @@
+/* Start Activities */
+
+.activities {
+    padding: 40px 0 20px;
+}
+
+.activities h2 {
+    margin: 0 auto 30px;
+    color: var(--main-color);
+    text-align: center;
+}
+
+.activities .content {
+    padding: 6px;
+}
+
+.activities .content .adv {
+    background-color: #fff;
+    position: relative;
+    padding: 15px;
+    box-shadow: 0 0 6px 0 #ccc;
+    margin-bottom: 30px;
+}
+
+.activities .content .adv .date-box {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    color: #fff;
+    text-align: center;
+    width: 80px;
+    height: 55px;
+    background: var(--main-color);
+    font-weight: bold;
+    font-size: 1.466rem;
+    line-height: 55px;
+}
+
+.activities .content .adv .date-box small {
+    font-size: 0.8rem;
+}
+
+.activities .content .adv .head {
+    max-width: calc(100% - 110px);
+}
+
+.activities .content .adv .head .title {
+    color: #444;
+    margin: 0 0 8px;
+}
+
+.activities .content .adv .head .discription {
+    font-size: 0.866rem;
+    color: #777;
+}
+
+.activities .content .adv .body {
+    margin-top: 20px;
+}
+
+.activities .content .adv .body img {
+    max-width: 100%;
+    margin-bottom: 15px;
+}
+
+.activities .content .adv .body p {
+    margin: 0 0 10px;
+    text-align: justify;
+    color: #444;
+    line-height: 1.7;
+    font-size: 0.933rem;
+}
+
+.activities .content .adv .body a {
+    color: var(--second-color);
+}
+
+.activities .content .adv .body a:hover {
+    text-decoration: underline;
+}
+
+/* End Activities */

@@ -1,0 +1,119 @@
+/* Start Student */
+
+.group .content .messenger .messeges {
+    left: auto;
+    right: 0;
+}
+
+.group .content .messenger .messeges .msg .head .name {
+    border-radius: 20px 20px 0 20px;
+    margin-right: 0;
+    margin-left: 4px;
+    float: right;
+}
+
+.group .content .messenger .messeges .msg.me .head .name {
+    margin-right: 4px;
+    margin-left: 0;
+    border-radius: 20px 20px 20px 0;
+    float: left;
+}
+
+.group .content .messenger .messeges .msg.me .head .date {
+    float: left;
+}
+
+.group .content .messenger .messeges .msg .body {
+    border-radius: 100px 0 40px 100px;
+}
+
+.group .content .messenger .messeges .msg.me .body {
+    border-radius: 0 100px 100px 40px;
+}
+
+.group .content .messenger .messeges .msg .body.file {
+    border-radius: 6px 0 6px 6px;
+}
+
+.group .content .messenger .messeges .msg.me .body.image,
+.group .content .messenger .messeges .msg.me .body.file {
+    border-radius: 0 6px 6px 6px;
+}
+
+.group .content .messenger .messeges .msg .body.image {
+    border-radius: 6px 0 6px 6px;
+}
+
+.group .content .messenger .sender {
+    left: auto;
+    right: 10px;
+}
+
+.group .content .messenger .sender > * {
+    float: right;
+}
+
+.group .content .messenger .sender input[type='text'] {
+    padding-left: 50px;
+    padding-right: 15px;
+}
+
+.group .content .messenger .sender > button {
+    margin-left: 0;
+    margin-right: -5%;
+    transform: rotate(-135deg);
+}
+
+.group .content .messenger .sender .file:first-of-type {
+    margin-left: 10px;
+    margin-right: calc(10% - 90px);
+}
+
+.group .content .messenger .sender .file > * {
+    left: auto;
+    right: 0;
+}
+
+/* End Student */
+
+/* Start Teacher */
+
+/* End Teacher */
+
+/* Start Media Query */
+
+@media (max-width: 768px) {
+    .group .content .messenger .sender > button {
+        margin-left: 0;
+        margin-right: -12%;
+    }
+    .group .content .messenger .sender .file:first-of-type {
+        margin-left: 10px;
+        margin-right: calc(10% - 20px);
+    }
+    .group .content .messenger .messeges .msg.me .body {
+        border-radius: 0 20px 20px 10px;
+    }
+    .group .content .messenger .messeges .msg.out .body {
+        border-radius: 20px 0 10px 20px;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 991px) {
+    .group .content .messenger .sender > button {
+        margin-left: 0;
+        margin-right: -7%;
+    }
+    .group .content .messenger .sender .file:first-of-type {
+        margin-left: 10px;
+        margin-right: calc(10% - 46px);
+    }
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+    .group .content .messenger .sender .file:first-of-type {
+        margin-left: 10px;
+        margin-right: calc(10% - 74px);
+    }
+}
+
+/* End Media Query */

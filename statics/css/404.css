@@ -1,0 +1,9 @@
+body {
+    background-color: #fff;
+}
+
+img {
+    display: block;
+    margin: auto;
+    max-width: 300px;
+}

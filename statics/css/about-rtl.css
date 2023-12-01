@@ -1,0 +1,32 @@
+/* Start About */
+
+/* Gallery */
+
+.about .gallery .images img {
+    float: right;
+}
+
+/* Popup */
+
+.about .gallery .popup .image a.left {
+    left: auto;
+    right: 0;
+    background-image: url('/images/next.png');
+    background-position: center right;
+}
+.about .gallery .popup .image a.right {
+    right: auto;
+    left: 0;
+    background-image: url('/images/prev.png');
+    background-position: center left;
+}
+
+.about .gallery .popup .text p {
+    float: right;
+}
+
+.about .gallery .popup .text .close {
+    float: left;
+}
+
+/* End About */

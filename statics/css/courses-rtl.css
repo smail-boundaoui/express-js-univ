@@ -1,0 +1,67 @@
+/* Start Student */
+
+.courses .serie > span {
+    margin-right: 0;
+    margin-left: 20px;
+}
+
+.courses .serie label a {
+    line-height: 42px;
+}
+
+/* Head */
+
+.courses .content .head ul li p {
+    padding-left: 0;
+    padding-right: 25px;
+}
+
+/* Body */
+
+.courses .content .body .date::before {
+    margin-right: 0;
+    margin-left: 8px;
+}
+
+.courses .content .body a::before {
+    margin-right: 0;
+    margin-left: 10px;
+}
+
+/* End Student */
+
+/* Start Teacher */
+
+/* Body */
+
+.teacher .courses .content .body .course .delete {
+    right: auto;
+    left: 10px;
+}
+
+.teacher .courses .content .body .add-course input[type='file'] {
+    margin-right: 0;
+    margin-left: 5%;
+}
+
+/* End Teacher */
+
+/* Start Media Query */
+
+@media (max-width: 768px) {
+    .courses .content .head ul li,
+    .courses .content .body p {
+        text-align: right;
+    }
+    .teacher .courses .content .body .add-course input[type='file'] {
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+    }
+    .teacher .courses .content .body .add-course button {
+        width: 100px;
+        float: left;
+    }
+}
+
+/* End Media Query */

@@ -1,0 +1,99 @@
+html {
+    font-family: 'droid', 'poppins';
+}
+
+input,
+textarea,
+button,
+select {
+    font-family: 'droid', 'poppins';
+}
+
+/* Start Nav */
+
+nav .logo {
+    float: right;
+}
+
+nav .links {
+    float: left;
+}
+
+nav .links .lang::before {
+    margin-right: 0;
+    margin-left: 6px;
+}
+
+nav .links .lang::after {
+    margin-left: 0;
+    margin-right: 3px;
+}
+
+nav .links .dropdown li:hover {
+    padding-left: 0;
+    padding-right: 8px;
+}
+
+nav .links .dropdown li.selected a::after {
+    margin-left: 0;
+    margin-right: 4px;
+}
+
+nav .links .account a::before {
+    margin-right: 0;
+    margin-left: 6px;
+}
+
+nav .links > li.notification span {
+    top: -10px;
+    right: auto;
+    left: -15px;
+}
+
+/* End Nav */
+
+/* Start Footer */
+
+footer .container > div {
+    float: right;
+}
+
+footer .sitemap ul li {
+    float: right;
+    margin: 0 0 12px 3.33%;
+}
+
+/* End Footer */
+
+/* Start Media Query */
+
+@media (max-width: 768px) {
+    /* Nav */
+    nav {
+        left: auto;
+        right: 0;
+    }
+
+    nav .trigger {
+        float: left;
+    }
+
+    nav .trigger i {
+        position: relative;
+        top: -3px;
+    }
+    nav .links > li.notification span {
+        right: auto;
+        left: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+}
+
+@media (min-width: 769px) and (max-width: 991px) {
+    nav .links .dropdown {
+        text-align: right;
+    }
+}
+
+/* End Media Query */
