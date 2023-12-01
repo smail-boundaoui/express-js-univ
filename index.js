@@ -52,8 +52,8 @@ app.use(
         saveUninitialized: false,
         resave: false,
         store: new require('connect-mongodb-session')(session)({
-            uri: 'mongodb://localhost:27017',
-            databaseName: 'University',
+            uri: process.env.DB_URI,
+            databaseName: 'university',
             collection: 'Sessions',
         }),
     })
