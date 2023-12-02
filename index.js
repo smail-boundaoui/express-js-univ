@@ -16,6 +16,8 @@ const socketIO = require('socket.io')
 
 const io = socketIO(server)
 
+require("dotenv").config()
+
 // Socket
 
 io.on('connection', (socket) => {
