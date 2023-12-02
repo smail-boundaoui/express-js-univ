@@ -18,13 +18,8 @@ router.post('/', (req, res) => {
             if (new_pass === confirm) {
                 const hashedPass = hashSync(new_pass, 10)
                 req.session.user.password = hashedPass
-                require('../db').updateDocument(
-                    req.session.user.userType + 's',
-                    { _id: req.session.user._id },
-                    { $set: { password: hashedPass } }
-                )
-                req.flash('passwordOk', 'Password Changed')
-            } else req.flash('passwordErr', "New Passwords d'ont Match")
+                req.flash('passwordOk', '#-_-)!!!')
+            } else req.flash('passwordErr', "New Passwords don't Match")
         } else req.flash('passwordErr', 'Current Password is Wrong!')
     } else req.flash('passwordErr', 'Data Manipulation!')
     res.redirect('/account')
