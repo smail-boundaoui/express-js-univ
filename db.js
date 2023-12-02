@@ -1,5 +1,7 @@
 const { MongoClient } = require('mongodb')
 
+const DB = "university"
+
 const connect = () => {
     return new Promise((resolve, reject) => {
         MongoClient.connect(process.env.DB_URI, (err, client) => {
